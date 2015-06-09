@@ -1,0 +1,106 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript" src="http://code.highcharts.com/stock/highstock.js"></script>
+		<script type="text/javascript" src="http://code.highcharts.com/stock/modules/exporting.js"></script>
+		<script type="text/javascript" src="js/reconnecting-websocket.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+		<style> 
+			body {
+				background-color: black; 
+				color: gray;
+			}
+			#footer {
+				font-size: 80%;
+			}
+			#lfooter {
+				text-align: left;
+				float: left;
+			}
+			#rfooter {
+				text-align: right;
+				float: right;
+			}
+			.highcharts-loading: {
+				background-color: black;
+				color: black;  
+			}
+			td { 
+				padding: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<table style="width:100%; height:100%">
+			<tr>
+				<td rowspan="2" style="width:100%">
+					<div id="container" style="min-width: 500px; height:100%"></div>
+				</td>
+				<td>
+					<table style="height:100%; vertical-align: top; white-space:nowrap">
+						<tr>
+							<td><input type="checkbox" id="upSoundCheck" checked>Up</td>
+							<td style="width:100%"><input type="text" size="5" id="upSoundVal" value="0.88"></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="downSoundCheck" checked>Down</td>
+							<td><input type="text" size="5" id="downSoundVal" value="2"></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="priceUpSoundCheck">Price Up</td>
+							<td style="width:100%"><input type="text" size="5" id="priceUpSoundVal"></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="priceDownSoundCheck">Price Down</td>
+							<td><input type="text" size="5" id="priceDownSoundVal"></td>
+						</tr>
+                        <tr>
+							<td><input type="checkbox" id="moveUpSoundCheck" checked>Movement Up</td>
+							<td><input type="text" size="5" id="moveUpSoundVal" value="1"></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="moveDownSoundCheck" checked>Movement Down</td>
+							<td><input type="text" size="5" id="moveDownSoundVal" value="1"></td>
+						</tr>
+                        <tr>
+							<td><input type="checkbox" id="priceMoveUpSoundCheck" checked>Price Movement Up</td>
+							<td><input type="text" size="5" id="priceMoveUpSoundVal" value="20"></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="priceMoveDownSoundCheck" checked>Price Movement Down</td>
+							<td><input type="text" size="5" id="priceMoveDownSoundVal" value="20"></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="highLowApproachCheck">High-Low Approach</td>
+							<td><input type="text" size="5" id="highLowApproachVal" value="0.1"></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="lowHighApproachCheck">Low-High Approach</td>
+							<td><input type="text" size="5" id="lowHighApproachVal" value="0.1"></td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="crossAboveSoundCheck" checked>Crossover Above</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="crossBelowSoundCheck" checked>Crossover Below</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" id="maxCheck" onchange="yLimitHandler()" >Y Max</td>
+							<td><input type="text" size="5" id="maxVal" ></td>
+						</tr>
+						<tr>
+							<td><input type="button" onclick="reconnect()" value="Reconnect"></td>
+						</tr>
+					</table>
+			</tr>
+			<tr style="height:100%; vertical-align: bottom; text-align:right">
+				<td style="white-space: nowrap;">
+					&copy; 2013 Jiazheng Li<br>
+					Charts by <a href="http://www.highcharts.com/products/highstock">Highstock</a><br>
+					Donate: 1FuNJbt1sTYjCb7MYcJuHgzSUJHsATLdhR<br>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
